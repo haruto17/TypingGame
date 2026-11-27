@@ -77,10 +77,14 @@ fun GameScreen(modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(name = "Home", showBackground = true, showSystemUi = true)
 @Composable
-fun TypingGameAppPreview() {
-    TypingGameTheme {
-        TypingGameApp()
-    }
+fun HomePreview() {
+    TypingGameTheme { TypingGameApp(startDestination = Screen.Home) }
+}
+
+@Preview(name = "Game", showBackground = true, showSystemUi = true)
+@Composable
+fun GamePreview() {
+    TypingGameTheme { TypingGameApp(startDestination = Screen.Game) }
 }
