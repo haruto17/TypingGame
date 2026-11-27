@@ -45,7 +45,7 @@ fun TypingGameApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.name) {
-                HomeScreen()
+                HomeScreen(onStart = { navController.navigate(Screen.Game.name) })
             }
             composable(Screen.Game.name) {
                 GameScreen()
@@ -55,13 +55,13 @@ fun TypingGameApp(
 }
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(onStart: () -> Unit, modifier: Modifier = Modifier) {
     Column {
         Text(
             text = "Home",
             modifier = modifier
         )
-        Button(onClick = {}) {
+        Button(onClick = { onStart() }) {
             Text(
                 text = "Start"
             )
