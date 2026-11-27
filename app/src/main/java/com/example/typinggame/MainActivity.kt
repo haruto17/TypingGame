@@ -19,29 +19,31 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TypingGameTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                TypingGameApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun TypingGameApp() {
+    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+        HomeScreen(modifier = Modifier.padding(innerPadding))
+    }
+}
+
+@Composable
+fun HomeScreen(modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Home",
         modifier = modifier
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GreetingPreview() {
+fun TypingGameAppPreview() {
     TypingGameTheme {
-        Greeting("Android")
+        TypingGameApp()
     }
 }
